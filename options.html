@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+  <meta http-equiv="content-type" charset="utf-8">
+  <html lang="en">
+    <head>
+      <link rel="stylesheet" type="text/css" href="options.css">
+      <title>Ace Massfollow</title>
+    </head>
+    <body>
+      <main>
+        <section>
+          <h2>Ace Version</h2>
+        </section>
+        <section>
+          <h2>フォローの設定</h2>
+          <div>
+            <label for="followIntervalMin">待機時間(秒)</label><br>
+            <input min="0.1" id="followIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="followIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p><a href="https://support.twitter.com/articles/355430" target="_blank">Twitter規約</a>による凍結回避のため、入力した最小値から最大値までの間でランダムの秒数でフォローしていきます。</p>
+            <hr>
+            <label for="followLimit">フォロー数の上限</label><br>
+            <input id="followLimit" step="1" type="number">
+            <p>入力した人数で、フォローをやめます。</p>
+            <hr>
+            <label for="followSkipFollowed">フォロー中の人</label><br>
+            <label>
+              <input id="followSkipFollowed" type="checkbox"> すでにフォローしている人をスキップします。
+            </label>
+            <hr>
+            <label for="followProfileImageRequired">トプ画について</label><br>
+            <label>
+              <input type="checkbox" id="followProfileImageRequired"> 初期アイコンをスキップ
+            </label>
+            <p>画像設定していないアカウントはフォローしません。</p>
+            <hr>
+            <label for="followSkipProtected">鍵アカウントについて</label><br>
+            <label>
+              <input type="checkbox" id="followSkipProtected"> 鍵アカウントの人のフォローをスキップ
+            </label>
+            <hr>
+            <label for="followSkipFollower">フォロワー</label><br>
+            <label>
+              <input type="checkbox" id="followSkipFollower"> フォロワーをスキップ
+            </label>
+            <hr>
+            <label for="followSkipVerified">公式アカウント</label><br>
+            <label>
+              <input type="checkbox" id="followSkipVerified"> 公式アカウントをスキップ
+            </label>
+            <hr>
+            <label for="followBioRequired">プロフィール欄</label><br>
+            <label>
+              <input type="checkbox" id="followBioRequired"> プロフィール欄が入力されていない人をスキップ
+            </label>
+            <hr>
+            <label for="followMaxFollowers">最大フォロワー</label><br>
+            <input id="followMaxFollowers" step="1" type="number">
+            <p>入力した値以上のフォロワーがいる人のフォローをスキップ</p>
+            <hr>
+            <label for="followMaxFollowings">最大フォロー</label><br>
+            <input id="followMaxFollowings" step="1" type="number">
+            <p>入力した値以上のフォロー中がいる人のフォローをスキップ</p>
+            <hr>
+            <label for="followPauseWhenTwitterLimitExceeded">リミット上限到達時の待機時間</label><br>
+            <input id="followPauseWhenTwitterLimitExceeded" min="1" step="1" type="number" required>
+            <p><a href="https://help.twitter.com/ja/using-twitter/twitter-follow-limit" target="_blank">フォロー上限</a> に達した時に入力した秒数フォローを待機</p>
+            <hr>
+            <label for="followTweetLanguageWhitelist">言語設定</label><br>
+            <input type="text" id="followTweetLanguageWhitelist">
+            <p><a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes" target="_blank">ISO 639-1 言語コード</a>をコンマ区切りで入力すると、他の言語のツイートはスキップされます。たとえば、日本語のツイートのユーザーのみをフォローしたい場合は、jaを使用してください。すべての言語のツイートからユーザーをフォローするには、このフィールドを空のままにします。注：このオプションは、ツイートからフォローする場合（検索ビューなど）にのみ適用されます。 </p>
+            <hr>
+            <label for="followBlacklist">ブラックリスト</label><br>
+            <textarea id="followBlacklist" rows="6"></textarea>
+            <p>コンマ区切りでユーザ名を入力すると、フォローをスキップします。</p>
+          </div>
+        </section>
+        <section>
+          <h2>アンフォローの設定</h2>
+          <div>
+            <label for="unfollowIntervalMin">待機時間</label><br>
+            <input min="0.1" id="unfollowIntervalMin" placeholder="Min" step="0.1" type="number">
+            &ndash;
+            <input min="0.1" id="unfollowIntervalMax" placeholder="Max" step="0.1" type="number">
+            <p><a href="https://support.twitter.com/articles/355430" target="_blank">Twitter規約</a>による凍結回避のため、入力した最小値から最大値までの間でランダムの秒数でフォローしていきます。</p>
+            <hr>
+            <label for="unfollowMinDaysFollowed">最近フォローした人</label><br>
+            <input type="number" id="unfollowMinDaysFollowed" step="1" min="0">
+            <p>入力した日数以内にフォローした人のフォロー解除をスキップします。この項目は、Ace Massfollowでフォローした人に対してしか適用されません。</p>
+            <hr>
+            <label for="unfollowLimit">アンフォロー数の上限</label><br>
+            <input type="number" id="unfollowLimit" step="1">
+            <p>入力した人数で、アンフォローをやめます。</p>
+            <hr>
+            <label for="unfollowSkipFollower">フォロワー</label><br>
+            <label>
+              <input type="checkbox" id="unfollowSkipFollower"> フォロワーをスキップ
+            </label>
+            <hr>
+            <label for="unfollowSkipVerified">公式アカウント</label><br>
+            <label>
+              <input type="checkbox" id="unfollowSkipVerified"> 公式アカウントをスキップ
+            </label>
+            <hr>
+            <label for="unfollowMassFollowedRequired">高度な設定</label><br>
+            <label>
+              <input type="checkbox" id="unfollowMassFollowedRequired">この拡張機能によってフォローされている人のみをアンフォロー
+            </label>
+            <hr>
+            <label for="unfollowBlacklist">ブラックリスト</label><br>
+            <textarea id="unfollowBlacklist" rows="6"></textarea>
+            <p>コンマ区切りでユーザ名を入力すると、フォローをスキップします。</p>
+          </div>
+        </section>
+        <section>
+          <h2>Autopilot(自動操作)</h2>
+          <div>
+            <p>Autopilotは一連のアクションを実行し、一定時間停止後にそれらを繰り返します。 2つ以上のアクションを定義するとすぐに、Twitterホームページでオートパイロットを開始できます（Twitterページの更新が必要になる場合があります）。上記で定義されたMassFollow、MassUnfollowのオプションが適用されます。</p>
+            <p class="notification is-info"><a href="https://www.youtube.com/watch?v=M8coqv82T9c" target="_blank">設定方法デモムービー（Superpower本家のやつ）はこちら</a> </p>
+            <table class="actions">
+              <thead>
+                <tr class="action">
+                  <th>No.</th>
+                  <th>Type</th>
+                  <th>URL</th>
+                  <th>リミット*</th>
+                  <th>Idle timeout (seconds)**</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="actions">
+              </tbody>
+            </table>
+            <button id="add_action" class="button button--add">Add action</button>
+            <p>* You can also overwrite the limit for each action.</p>
+            <p>** If no successful follow/unfollow/like/retweet could be made for x seconds, continue with the next action. Note: Mass Follow/Unfollow/Like/Retweet Interval (seconds) does not count as idle. Leave this field empty to set no idle timeout.</p>
+            <hr>
+            <label for="autopilotRepeatAfter">Repeat after (minutes)</label><br>
+            <input id="autopilotRepeatAfter" min="1" step="1" type="number">
+            <p>Repeat autopilot after x minutes. Leave this field empty if you do not want to repeat the autopilot.</p>
+          </div>
+        </section>
+      </main>
+      <script src="options.js"></script>
+    </body>
+  </html>
