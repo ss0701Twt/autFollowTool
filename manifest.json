@@ -1,0 +1,22 @@
+{
+   "author": ["Hiroki Kuwahara","Shunsuke Yasuda"],
+   "content_scripts": [ {
+      "css": [ "content.css" ],
+      "js": [ "content.js" ],
+      "matches": [ "https://mobile.twitter.com/*", "https://twitter.com/*" ]
+   } ],
+   "description": "Twitterでの一括フォローと一括フォロー解除ができるようになる拡張機能",
+   //"homepage_url": "",
+   "icons": {
+      "128": "images/30115.png",
+      "16": "images/30115-16.png",
+      "48": "images/30115-48.png"
+   },
+   
+   "manifest_version": 2,
+   "name": "Automatic Ace",
+   "options_page": "options.html",
+   "permissions": [ "storage", "unlimitedStorage" ],
+   //"update_url": "",
+   "version": "4.4"
+}
