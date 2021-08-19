@@ -13,7 +13,7 @@
       "48": "images/30115-48.png"
    },
    
-   "manifest_version": 2,
+   "manifest_version": 3,
    "name": "Automatic Ace",
    "options_page": "options.html",
    "permissions": [ "storage", "unlimitedStorage" ],
