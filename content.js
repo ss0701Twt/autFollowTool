@@ -117,7 +117,7 @@ function(module, __webpack_exports__, __webpack_require__) {
     const scripts = document.querySelectorAll("script");
     
 	scripts.forEach(function(script) {
-		script.innerHTML.includes("__INITIAL_STATE__") && eval(script.innerHTML)
+		script.innerHTML.includes("__INITIAL_STATE__") && eval(script.innerHTML) //エラー出てる...
 	});
     const session = Object(_lib_dig__WEBPACK_IMPORTED_MODULE_0__.a)(window, "__INITIAL_STATE__", "session"),
 		  users = Object(_lib_dig__WEBPACK_IMPORTED_MODULE_0__.a)(window, "__INITIAL_STATE__", "entities", "users", "entities"),
@@ -289,7 +289,9 @@ function(e_18, t_18, n_18) {//ここから最後まで
 	function g_18(e_18_7) {  //インターバルの処理
 		return new Promise(function (t){
 			console.log(`Sleeping ${e_18_7} ms ...`),
-			setTimeout(
+			// 202108 setTimeout→chrome.alarms
+			// setTimeout(
+			chrome.alarms(
 				function() {t()},
 				e_18_7
 				)
@@ -579,7 +581,9 @@ function(e_18, t_18, n_18) {//ここから最後まで
 				if(t <= 0) return void o("要求がタイムアウトしました。");
 				t -= 100
 			}
-			setTimeout(function() {we_18(e, t, n, o)}, 100)
+			// 202108 settimeoutはchrome.alarmsへ変更
+			// setTimeout(function() {we_18(e, t, n, o)}, 100)
+			chrome.alarms(function() {we_18(e, t, n, o)}, 100)
 		}
 	};
 	var pe_18
